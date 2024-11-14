@@ -11,7 +11,7 @@ typedef enum logic [2:0] {IDLE, READ_CHECK, WRITE_CHECK, READ, WRITE} State;
 State presentState = IDLE;
 State nextState;
 
-always @(negedge clk)begin
+always @(negedge clk, posedge rst)begin
 	if (rst) begin
         read_ptr <= 4'b0000; 
         write_ptr <= 4'b0000;
